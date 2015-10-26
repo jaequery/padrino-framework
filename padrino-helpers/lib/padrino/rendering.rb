@@ -287,7 +287,7 @@ module Padrino
         return options if layout == false
 
         layout = @layout if !layout || layout == true
-        return options if settings.templates.has_key?(:layout) && layout.blank?
+        return options if settings.templates.has_key?(:layout) && !layout
 
         if layout.kind_of?(String) && Pathname.new(layout).absolute?
           layout_path, _, layout = layout.rpartition('/')

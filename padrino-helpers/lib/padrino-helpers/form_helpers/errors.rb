@@ -122,7 +122,7 @@ module Padrino
           [:id, :class, :style].each_with_object({}) do |key,all|
             if options.include?(key)
               value = options[key]
-              all[key] = value unless value.blank?
+              all[key] = value if value
             else
               all[key] = 'field-errors' unless key == :style
             end

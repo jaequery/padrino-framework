@@ -455,7 +455,7 @@ WARNING
         default_text = default ? " (leave blank for #{default}):" : nil
         say("#{statement}#{default_text} ", color)
         result = $stdin.gets.strip
-        result.blank? ? default : result
+        result.empty? ? default : result
       end
 
       ##
