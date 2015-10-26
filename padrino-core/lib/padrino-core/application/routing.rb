@@ -956,7 +956,7 @@ module Padrino
           @params, @layout = original_params, parent_layout
         end
 
-        if routes.present?
+        unless routes.empty?
           verb = request.request_method
           candidacies, allows = routes.partition{|route| route.verb == verb }
           if candidacies.empty?
@@ -1000,7 +1000,7 @@ module Padrino
       end
 
       def captures_from_params(params)
-        if params[:captures].instance_of?(Array) && params[:captures].present?
+        if params[:captures].instance_of?(Array) && !params[:captures].empty?
           params.delete(:captures)
         else
           params.values_at(*route.matcher.names).flatten

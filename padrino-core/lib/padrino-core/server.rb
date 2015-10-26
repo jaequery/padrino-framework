@@ -111,8 +111,8 @@ module Padrino
     #
     def self.detect_address(options)
       address = DEFAULT_ADDRESS.merge options.slice(:Host, :Port)
-      address[:Host] = options[:host] if options[:host].present?
-      address[:Port] = options[:port] if options[:port].present?
+      address[:Host] = options[:host] if options[:host]
+      address[:Port] = options[:port] if options[:port]
       address
     end
   end
