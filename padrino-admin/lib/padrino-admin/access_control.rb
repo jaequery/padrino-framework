@@ -1,5 +1,3 @@
-require 'active_support/core_ext/class/attribute_accessors'
-
 module Padrino
   module Admin
     class AccessControlError < StandardError
@@ -19,7 +17,17 @@ module Padrino
           app.helpers Padrino::Admin::Helpers::AuthenticationHelpers
           app.helpers Padrino::Admin::Helpers::ViewHelpers
           app.before { login_required }
-          app.send(:cattr_accessor, :access_control)
+          app.class_eval do
+            def access_control
+              @@access_control
+            end
+            def self.access_control
+              @@access_control
+            end
+            def self.access_control=(control)
+              @@access_control = control
+            end
+          end
           app.send(:access_control=, Padrino::Admin::AccessControl::Base.new)
         end
         alias :included :registered
