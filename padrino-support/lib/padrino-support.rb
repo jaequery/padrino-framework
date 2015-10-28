@@ -7,7 +7,6 @@ require 'active_support/core_ext/hash/indifferent_access'   # params[:foo]
 require 'active_support/core_ext/hash/slice'                # slice
 require 'active_support/core_ext/array/extract_options'     # Array#extract_options!
 
-require 'padrino-support/core_ext/string/inflections'
 require 'padrino-support/core_ext/string/colorize'
 require 'padrino-support/core_ext/object_space'
 require 'padrino-support/file_set'
