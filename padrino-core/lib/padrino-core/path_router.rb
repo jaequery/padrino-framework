@@ -55,7 +55,7 @@ module Padrino
       # Finds a path which is matched with conditions from arguments
       #
       def path(name, *args)
-        params = args.extract_options!
+        params = args.last.is_a?(Hash) ? args.pop : {}
         @routes.each do |route|
           next unless route.name == name
           matcher = route.matcher
