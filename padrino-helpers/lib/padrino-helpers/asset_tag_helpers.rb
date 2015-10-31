@@ -231,7 +231,7 @@ module Padrino
         options = {
           :rel => 'stylesheet',
           :type => 'text/css'
-        }.update(sources.last.is_a?(Hash) ? sources.pop.symbolize_keys : {})
+        }.update(sources.last.is_a?(Hash) ? Utils.symbolize_keys(sources.pop) : {})
         sources.flatten.inject(SafeBuffer.new) do |all,source|
           all << tag(:link, { :href => asset_path(:css, source) }.update(options))
         end
@@ -254,7 +254,7 @@ module Padrino
       def javascript_include_tag(*sources)
         options = {
           :type => 'text/javascript'
-        }.update(sources.last.is_a?(Hash) ? sources.pop.symbolize_keys : {})
+        }.update(sources.last.is_a?(Hash) ? Utils.symbolize_keys(sources.pop) : {})
         sources.flatten.inject(SafeBuffer.new) do |all,source|
           all << content_tag(:script, nil, { :src => asset_path(:js, source) }.update(options))
         end
