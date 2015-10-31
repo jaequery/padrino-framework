@@ -1,7 +1,6 @@
 ##
 # This file loads certain extensions required by Padrino from ActiveSupport.
 #
-require 'active_support/core_ext/hash/slice'                # slice
 
 require 'padrino-support/core_ext/string/colorize'
 require 'padrino-support/core_ext/object_space'
